@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notebook-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notebook-backend
+  template:
+    metadata:
+      labels:
+        app: notebook-backend
+    spec:
+      containers:
+      - name: notebook-backend
+        image: shobhitrastogi/notebook-backend:latest
+        ports:
+        - containerPort: 5000
